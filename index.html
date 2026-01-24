@@ -258,6 +258,216 @@
             50% { opacity: 0.5; }
         }
 
+        /* Command Center Styles */
+        .command-center {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .command-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .command-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1em;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-icon {
+            margin-right: 10px;
+            opacity: 0.7;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: transparent;
+        }
+
+        .action-btn.success {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-color: transparent;
+        }
+
+        .action-btn.warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-color: transparent;
+        }
+
+        /* System Health Gauges */
+        .health-gauges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .gauge-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .gauge-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+        }
+
+        .gauge-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.1);
+            stroke-width: 10;
+        }
+
+        .gauge-fill {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            transition: stroke-dashoffset 1s ease-out;
+        }
+
+        .gauge-fill.cpu { stroke: #667eea; }
+        .gauge-fill.memory { stroke: #f093fb; }
+        .gauge-fill.network { stroke: #4facfe; }
+        .gauge-fill.agents { stroke: #10b981; }
+
+        .gauge-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .gauge-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* Live Status Bar */
+        .status-bar {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: statusPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        }
+
+        .live-clock {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            font-size: 1.1em;
+            color: #667eea;
+        }
+
+        /* Agent filter highlight */
+        .agent-card.hidden {
+            display: none;
+        }
+
+        .agent-card.highlight {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
         .footer {
             text-align: center;
             padding: 30px;
@@ -297,6 +507,107 @@
             <div class="stat-card">
                 <div class="stat-label">Target Agents</div>
                 <div class="stat-value">30K</div>
+            </div>
+        </div>
+
+        <!-- Live Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-dot"></span>
+                <span>System Operational</span>
+            </div>
+            <div class="status-item">
+                <span>Last Sync:</span>
+                <span id="lastSync">--:--:--</span>
+            </div>
+            <div class="status-item">
+                <span>Uptime:</span>
+                <span id="uptime">99.97%</span>
+            </div>
+            <div class="status-item">
+                <span class="live-clock" id="liveClock">--:--:--</span>
+            </div>
+        </div>
+
+        <!-- Command Center -->
+        <div class="command-center">
+            <div class="command-header">
+                <div class="command-title">
+                    <span>🎛️</span>
+                    <span>Command Center</span>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="agentSearch" placeholder="Search agents..." onkeyup="filterAgents()">
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn primary" onclick="syncAll()">
+                    <span>🔄</span> Sync All Agents
+                </button>
+                <button class="action-btn success" onclick="deployAll()">
+                    <span>🚀</span> Deploy Queue
+                </button>
+                <button class="action-btn" onclick="refreshMetrics()">
+                    <span>📊</span> Refresh Metrics
+                </button>
+                <button class="action-btn" onclick="viewLogs()">
+                    <span>📜</span> View Logs
+                </button>
+                <button class="action-btn warning" onclick="alertConfig()">
+                    <span>🔔</span> Alert Config
+                </button>
+            </div>
+
+            <div class="health-gauges">
+                <div class="gauge-card">
+                    <div class="gauge-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
+                            <circle class="gauge-fill cpu" cx="50" cy="50" r="40"
+                                stroke-dasharray="251.2" stroke-dashoffset="62.8" id="cpuGauge"></circle>
+                        </svg>
+                        <div class="gauge-value" id="cpuValue">75%</div>
+                    </div>
+                    <div class="gauge-label">CPU Usage</div>
+                </div>
+
+                <div class="gauge-card">
+                    <div class="gauge-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
+                            <circle class="gauge-fill memory" cx="50" cy="50" r="40"
+                                stroke-dasharray="251.2" stroke-dashoffset="87.92" id="memoryGauge"></circle>
+                        </svg>
+                        <div class="gauge-value" id="memoryValue">65%</div>
+                    </div>
+                    <div class="gauge-label">Memory</div>
+                </div>
+
+                <div class="gauge-card">
+                    <div class="gauge-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
+                            <circle class="gauge-fill network" cx="50" cy="50" r="40"
+                                stroke-dasharray="251.2" stroke-dashoffset="100.48" id="networkGauge"></circle>
+                        </svg>
+                        <div class="gauge-value" id="networkValue">60%</div>
+                    </div>
+                    <div class="gauge-label">Network I/O</div>
+                </div>
+
+                <div class="gauge-card">
+                    <div class="gauge-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
+                            <circle class="gauge-fill agents" cx="50" cy="50" r="40"
+                                stroke-dasharray="251.2" stroke-dashoffset="0" id="agentsGauge"></circle>
+                        </svg>
+                        <div class="gauge-value" id="agentsValue">5/5</div>
+                    </div>
+                    <div class="gauge-label">Active Agents</div>
+                </div>
             </div>
         </div>
 
@@ -560,6 +871,139 @@
                 setTimeout(() => el.style.animation = '', 10);
             });
         }, 2000);
+
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour12: false });
+            document.getElementById('liveClock').textContent = timeStr;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Last Sync Time
+        function updateLastSync() {
+            const now = new Date();
+            document.getElementById('lastSync').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+        }
+        updateLastSync();
+
+        // Agent Search/Filter
+        function filterAgents() {
+            const searchTerm = document.getElementById('agentSearch').value.toLowerCase();
+            const agentCards = document.querySelectorAll('.agent-card');
+
+            agentCards.forEach(card => {
+                const agentName = card.querySelector('.agent-name').textContent.toLowerCase();
+                const agentDesc = card.querySelector('p').textContent.toLowerCase();
+
+                if (agentName.includes(searchTerm) || agentDesc.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                    if (searchTerm.length > 0) {
+                        card.classList.add('highlight');
+                    } else {
+                        card.classList.remove('highlight');
+                    }
+                } else {
+                    card.classList.add('hidden');
+                    card.classList.remove('highlight');
+                }
+            });
+        }
+
+        // Command Center Actions
+        function syncAll() {
+            showNotification('Syncing all agents...', 'info');
+            updateLastSync();
+            animateGauges();
+        }
+
+        function deployAll() {
+            showNotification('Deploy queue initiated!', 'success');
+        }
+
+        function refreshMetrics() {
+            showNotification('Refreshing metrics...', 'info');
+            animateGauges();
+        }
+
+        function viewLogs() {
+            showNotification('Opening log viewer...', 'info');
+        }
+
+        function alertConfig() {
+            showNotification('Alert configuration panel', 'warning');
+        }
+
+        // Notification System
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                border-radius: 10px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                animation: slideIn 0.3s ease-out;
+                backdrop-filter: blur(10px);
+            `;
+
+            const colors = {
+                info: 'linear-gradient(135deg, #667eea, #764ba2)',
+                success: 'linear-gradient(135deg, #10b981, #059669)',
+                warning: 'linear-gradient(135deg, #f59e0b, #d97706)'
+            };
+            notification.style.background = colors[type] || colors.info;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-out';
+                setTimeout(() => notification.remove(), 300);
+            }, 2500);
+        }
+
+        // Add notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animate Gauges with random variation
+        function animateGauges() {
+            const gauges = [
+                { id: 'cpuGauge', valueId: 'cpuValue', base: 75, variance: 15 },
+                { id: 'memoryGauge', valueId: 'memoryValue', base: 65, variance: 10 },
+                { id: 'networkGauge', valueId: 'networkValue', base: 60, variance: 20 }
+            ];
+
+            gauges.forEach(gauge => {
+                const value = Math.min(100, Math.max(20, gauge.base + (Math.random() - 0.5) * gauge.variance * 2));
+                const circumference = 251.2;
+                const offset = circumference - (value / 100) * circumference;
+
+                document.getElementById(gauge.id).style.strokeDashoffset = offset;
+                document.getElementById(gauge.valueId).textContent = Math.round(value) + '%';
+            });
+        }
+
+        // Initial gauge animation
+        setTimeout(animateGauges, 500);
+
+        // Periodic gauge updates
+        setInterval(animateGauges, 5000);
     </script>
 </body>
 </html>
