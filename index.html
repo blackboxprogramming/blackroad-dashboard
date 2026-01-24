@@ -468,6 +468,225 @@
             box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
         }
 
+        .agent-card.clickable {
+            cursor: pointer;
+        }
+
+        /* Agent Detail Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .modal-title .agent-icon {
+            font-size: 2.5em;
+        }
+
+        .modal-title-text h2 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-section {
+            margin-bottom: 30px;
+        }
+
+        .modal-section-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .modal-stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .modal-stat-label {
+            font-size: 0.85em;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* Mini Performance Chart */
+        .perf-chart {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .perf-bar {
+            flex: 1;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.5s ease;
+            min-height: 10px;
+        }
+
+        .perf-chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.8em;
+            opacity: 0.6;
+        }
+
+        /* Activity Log in Modal */
+        .modal-activity {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .modal-activity-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid #667eea;
+            font-size: 0.9em;
+        }
+
+        .modal-activity-time {
+            font-size: 0.8em;
+            opacity: 0.6;
+            margin-bottom: 3px;
+        }
+
+        /* Modal Action Buttons */
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+        }
+
+        .modal-btn.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .modal-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-btn.danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .footer {
             text-align: center;
             padding: 30px;
@@ -612,7 +831,7 @@
         </div>
 
         <div class="claude-agents">
-            <div class="agent-card bot-deployment">
+            <div class="agent-card bot-deployment clickable" onclick="openAgentModal('bot-deployment')" data-agent="bot-deployment">
                 <div class="agent-header">
                     <div class="agent-icon">🤖</div>
                     <div>
@@ -641,7 +860,7 @@
                 </div>
             </div>
 
-            <div class="agent-card codex-indexer">
+            <div class="agent-card codex-indexer clickable" onclick="openAgentModal('codex-indexer')" data-agent="codex-indexer">
                 <div class="agent-header">
                     <div class="agent-icon">🔍</div>
                     <div>
@@ -670,7 +889,7 @@
                 </div>
             </div>
 
-            <div class="agent-card trinity-deployer">
+            <div class="agent-card trinity-deployer clickable" onclick="openAgentModal('trinity-deployer')" data-agent="trinity-deployer">
                 <div class="agent-header">
                     <div class="agent-icon">🎨</div>
                     <div>
@@ -699,7 +918,7 @@
                 </div>
             </div>
 
-            <div class="agent-card priority-stack">
+            <div class="agent-card priority-stack clickable" onclick="openAgentModal('priority-stack')" data-agent="priority-stack">
                 <div class="agent-header">
                     <div class="agent-icon">🔐</div>
                     <div>
@@ -728,7 +947,7 @@
                 </div>
             </div>
 
-            <div class="agent-card canva-integration">
+            <div class="agent-card canva-integration clickable" onclick="openAgentModal('canva-integration')" data-agent="canva-integration">
                 <div class="agent-header">
                     <div class="agent-icon">🎨</div>
                     <div>
@@ -856,6 +1075,66 @@
             <p style="margin-top: 10px;">Powered by [MEMORY] + [CODEX] + Trinity</p>
             <p style="margin-top: 5px; font-size: 0.8em;">Auto-refreshes every 30 seconds</p>
         </footer>
+    </div>
+
+    <!-- Agent Detail Modal -->
+    <div class="modal-overlay" id="agentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <div class="agent-icon" id="modalIcon">🤖</div>
+                    <div class="modal-title-text">
+                        <h2 id="modalName">Agent Name</h2>
+                        <span class="agent-status status-active">● ACTIVE</span>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title">📊 Performance Metrics</div>
+                    <div class="modal-stats-grid" id="modalStats">
+                        <!-- Dynamic stats will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">📈 24-Hour Performance</div>
+                    <div class="perf-chart" id="perfChart">
+                        <!-- Dynamic bars will be inserted here -->
+                    </div>
+                    <div class="perf-chart-label">
+                        <span>24h ago</span>
+                        <span>Now</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">📜 Recent Activity</div>
+                    <div class="modal-activity" id="modalActivity">
+                        <!-- Dynamic activity items will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">⚡ Quick Actions</div>
+                    <div class="modal-actions">
+                        <button class="modal-btn primary" onclick="agentAction('sync')">
+                            <span>🔄</span> Sync Now
+                        </button>
+                        <button class="modal-btn secondary" onclick="agentAction('logs')">
+                            <span>📜</span> View Logs
+                        </button>
+                        <button class="modal-btn secondary" onclick="agentAction('config')">
+                            <span>⚙️</span> Configure
+                        </button>
+                        <button class="modal-btn danger" onclick="agentAction('restart')">
+                            <span>🔃</span> Restart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1004,6 +1283,179 @@
 
         // Periodic gauge updates
         setInterval(animateGauges, 5000);
+
+        // Agent Data Store
+        const agentData = {
+            'bot-deployment': {
+                name: 'claude-bot-deployment',
+                icon: '🤖',
+                description: 'Bot workflows, integrations, Fortune 500 architecture',
+                stats: [
+                    { value: '56/56', label: 'Repos Deployed' },
+                    { value: '336', label: 'Active Workflows' },
+                    { value: '4', label: 'Integrations' },
+                    { value: '100%', label: 'Success Rate' },
+                    { value: '2.3M', label: 'Tasks Completed' },
+                    { value: '0', label: 'Failed Jobs' }
+                ],
+                activity: [
+                    { time: '2 min ago', text: 'Deployed master workflow to blackroad-os-core' },
+                    { time: '15 min ago', text: 'Updated GitHub Actions for 12 repositories' },
+                    { time: '1 hour ago', text: 'Synced bot configurations across all orgs' },
+                    { time: '3 hours ago', text: 'Completed weekly deployment audit' }
+                ]
+            },
+            'codex-indexer': {
+                name: 'claude-codex-indexer',
+                icon: '🔍',
+                description: 'Code indexing, search, verification framework',
+                stats: [
+                    { value: '8,789', label: 'Components Indexed' },
+                    { value: '56', label: 'Repos Indexed' },
+                    { value: '20', label: 'Math Identities' },
+                    { value: '∞', label: 'Verification Capacity' },
+                    { value: '1.2M', label: 'Lines Analyzed' },
+                    { value: '99.9%', label: 'Index Accuracy' }
+                ],
+                activity: [
+                    { time: '8 min ago', text: 'Indexed 127 new components from blackroad-os-web' },
+                    { time: '25 min ago', text: 'Verified mathematical proofs for Trinity system' },
+                    { time: '2 hours ago', text: 'Completed full re-index of codex database' },
+                    { time: '5 hours ago', text: 'Added new search indexes for API endpoints' }
+                ]
+            },
+            'trinity-deployer': {
+                name: 'claude-trinity-deployer',
+                icon: '🎨',
+                description: 'Design system, infrastructure validation, project mgmt',
+                stats: [
+                    { value: '39', label: 'Trinity Files' },
+                    { value: '36K', label: 'Lines of Code' },
+                    { value: '3', label: 'Light Systems' },
+                    { value: '2', label: 'Active Repos' },
+                    { value: '100%', label: 'Brand Compliance' },
+                    { value: 'φ', label: 'Golden Ratio' }
+                ],
+                activity: [
+                    { time: '12 min ago', text: 'Validated RedLight design for brand updates' },
+                    { time: '45 min ago', text: 'Deployed YellowLight components to staging' },
+                    { time: '2 hours ago', text: 'Completed GreenLight accessibility audit' },
+                    { time: '6 hours ago', text: 'Generated new Trinity documentation' }
+                ]
+            },
+            'priority-stack': {
+                name: 'claude-priority-stack',
+                icon: '🔐',
+                description: 'Headscale, Keycloak, EspoCRM, vLLM infrastructure',
+                stats: [
+                    { value: '6', label: 'Containers' },
+                    { value: '4', label: 'Core Services' },
+                    { value: '1', label: 'VPN Tunnel' },
+                    { value: '99.9%', label: 'Uptime' },
+                    { value: '847', label: 'Active Sessions' },
+                    { value: '0', label: 'Security Alerts' }
+                ],
+                activity: [
+                    { time: '15 min ago', text: 'Authenticated 3 new services via Keycloak' },
+                    { time: '30 min ago', text: 'Renewed SSL certificates for all domains' },
+                    { time: '1 hour ago', text: 'Scaled vLLM instances for peak demand' },
+                    { time: '4 hours ago', text: 'Completed security audit on Headscale network' }
+                ]
+            },
+            'canva-integration': {
+                name: 'claude-canva-integration',
+                icon: '🎨',
+                description: 'Visual generation, design automation, multi-format export',
+                stats: [
+                    { value: '6', label: 'Export Formats' },
+                    { value: 'OAuth', label: 'Auth Type' },
+                    { value: '1', label: 'Collaboration Hub' },
+                    { value: '∞', label: 'Design Capacity' },
+                    { value: '2,456', label: 'Designs Created' },
+                    { value: '15', label: 'Templates Active' }
+                ],
+                activity: [
+                    { time: '5 min ago', text: 'Generated architecture diagram for blackroad-os-api' },
+                    { time: '20 min ago', text: 'Exported presentation deck to PDF and PPTX' },
+                    { time: '1 hour ago', text: 'Created social media graphics batch' },
+                    { time: '3 hours ago', text: 'Completed brand asset library update' }
+                ]
+            }
+        };
+
+        // Open Agent Modal
+        function openAgentModal(agentId) {
+            const agent = agentData[agentId];
+            if (!agent) return;
+
+            const modal = document.getElementById('agentModal');
+            document.getElementById('modalIcon').textContent = agent.icon;
+            document.getElementById('modalName').textContent = agent.name;
+
+            // Populate stats
+            const statsContainer = document.getElementById('modalStats');
+            statsContainer.innerHTML = agent.stats.map(stat => `
+                <div class="modal-stat">
+                    <div class="modal-stat-value">${stat.value}</div>
+                    <div class="modal-stat-label">${stat.label}</div>
+                </div>
+            `).join('');
+
+            // Generate performance chart bars
+            const chartContainer = document.getElementById('perfChart');
+            chartContainer.innerHTML = '';
+            for (let i = 0; i < 24; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'perf-bar';
+                const height = 30 + Math.random() * 70;
+                bar.style.height = height + '%';
+                chartContainer.appendChild(bar);
+            }
+
+            // Populate activity
+            const activityContainer = document.getElementById('modalActivity');
+            activityContainer.innerHTML = agent.activity.map(item => `
+                <div class="modal-activity-item">
+                    <div class="modal-activity-time">${item.time}</div>
+                    <div>${item.text}</div>
+                </div>
+            `).join('');
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeModal() {
+            const modal = document.getElementById('agentModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('agentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Agent Action Handler
+        function agentAction(action) {
+            const actions = {
+                sync: 'Syncing agent...',
+                logs: 'Opening logs viewer...',
+                config: 'Opening configuration...',
+                restart: 'Restarting agent...'
+            };
+            showNotification(actions[action] || 'Action triggered', action === 'restart' ? 'warning' : 'info');
+        }
     </script>
 </body>
 </html>
